@@ -48,8 +48,8 @@
 				M._selfOffsetLeft = _self.offset().left ;
 				M._selfOffsetTop = _self.offset().top ;
 
-				M._selfWidth = parseInt(_self.css('width'));
-				M._selfHeight = parseInt(_self.css('height')) ;
+				M._selfWidth = _self[0].clientWidth;
+				M._selfHeight = _self[0].clientHeight ;
 
 				(!!options.addClass) && $contentDom.addClass(options.addClass);
 				(!!options.bgColor) && $contentDom.css('background-color',options.bgColor);
@@ -58,7 +58,7 @@
 
 				if(!isNaN(parseInt(options.maxWidth))){
 					$contentDom.css('width',options.width);
-					if((parseInt(options.maxWidth) < parseInt($contentDom.css('width')))){
+					if((parseInt(options.maxWidth) < $contentDom[0].clientWidth)){
 						$contentDom.css('width',options.maxWidth);
 					}
 				}else{
@@ -72,9 +72,8 @@
 
 				if(options.vertical == 'top'){
 					$contentDom.css({
-						'top' : M._selfOffsetTop - parseInt($contentDom.css('height')) - options.padding*2 - M.jiaoHeight,
-					})
-
+						'top' : M._selfOffsetTop - $contentDom[0].clientHeight - M.jiaoHeight,
+					});
 					$contentDom.children("i").css({
 						'border-bottom-width' :'0px',
 						'border-top-color' : options.bgColor,
@@ -105,25 +104,25 @@
 				}
 				if(options.horizontal == 'left'){
 					$contentDom.css({
-						'left' : M._selfOffsetLeft - parseInt($contentDom.css('width')) + M._selfWidth - options.padding*2,
+						'left' : M._selfOffsetLeft - $contentDom[0].clientWidth + M._selfWidth,
 					})
 
 					$contentDom.children("i").css({
-						'left' :  parseInt($contentDom.css('width')) - M._selfWidth/2,
+						'left' :  $contentDom[0].clientWidth - M._selfWidth/2 - M.jiaoWidth,
 					})
 				}
 				if(options.horizontal == 'center'){
 					$contentDom.css({
-						'left' : M._selfOffsetLeft + M._selfWidth/2 - parseInt($contentDom.css('width'))/2 - M.jiaoWidth
+						'left' : M._selfOffsetLeft + M._selfWidth/2 - $contentDom[0].clientWidth/2 
 					})
 
 					$contentDom.children("i").css({
-						'left' :  parseInt($contentDom.css('width'))/2,
+						'left' :  $contentDom[0].clientWidth/2 - M.jiaoWidth,
 					})
 
 					if(options.vertical == 'center'){
 						$contentDom.css({
-							'top' : M._selfOffsetTop - parseInt($contentDom.css('height')) - options.padding*2 - M.jiaoHeight,
+							'top' : M._selfOffsetTop - $contentDom[0].clientHeight - M.jiaoHeight,
 						})
 
 						$contentDom.children("i").css({
@@ -138,19 +137,19 @@
 
 				if(options.vertical == 'center'){
 					$contentDom.css({
-						'top' : M._selfOffsetTop + M._selfHeight/2 - (parseInt($contentDom.css('height'))+options.padding*2)/2,
+						'top' : M._selfOffsetTop + M._selfHeight/2 - $contentDom[0].clientHeight/2,
 					})
 
 					if(options.horizontal == 'left'){
 						$contentDom.css({
-							'left' : M._selfOffsetLeft - parseInt($contentDom.css('width')) - options.padding*2 - M.jiaoWidth,
+							'left' : M._selfOffsetLeft - $contentDom[0].clientWidth - M.jiaoWidth,
 						})
 
 						$contentDom.children("i").css({
 							'border-right-width' :'0px',
 							'border-left-color' : options.bgColor,
-							'top' : (parseInt($contentDom.css('height')) + options.padding*2)/2 - options.padding,
-							'left' :  parseInt($contentDom.css('width')) + options.padding*2
+							'top' : $contentDom[0].clientHeight/2 - options.padding,
+							'left' :  $contentDom[0].clientWidth
 						})
 
 					}
@@ -161,7 +160,7 @@
 						$contentDom.children("i").css({
 							'border-left-width' :'0px',
 							'border-right-color' : options.bgColor,
-							'top' : (parseInt($contentDom.css('height')) + options.padding*2)/2 - options.padding,
+							'top' : $contentDom[0].clientHeight/2 - options.padding,
 							'left' : -M.jiaoWidth
 						})
 
@@ -173,9 +172,9 @@
 
 				var _selfTipNum = __self.attr('dom-tip-num');
 				if(!!$('div[tip-num="'+_selfTipNum+'"]').length){
-
+					tipShow($('div[tip-num="'+_selfTipNum+'"]'));
 					init($(this));
-					tipShow($('div[tip-num="'+_selfTipNum+'"]'))
+
 				}else{
 					$('body').append($contentDom);
 					tipShow($contentDom);
