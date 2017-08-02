@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jqueryTip.css">
+	<script src='js/jquery-1.9.0.min.js'></script>
+	<script src='js/jqueryTip.js'></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body{
+			height:100%;
+			font-family: '微软雅黑';
+			font-size: 14px;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		fieldset{
+			padding:30px;
+			display: inline-block;
+		}
+		legend{
+			padding:0 15px;
+		}
+		button{
+			width:120px;
+			height:40px;
+			background: blue;
+			color:#fff;
+			line-height: 40px;
+			border-radius: 3px;
+			border:0;
+		}
+		a{
+			color:#189465;
+		}
+	</style>
+</head>
+<body>
+	<fieldset id="tip-btn1" class="m20 fieldset">
+					<legend>示例 </legend>
+					<button data-tip='详细演示请看tip.html或去官网<a href="http://fy.035k.com/project/jqueryTip">http://fy.035k.com/project/jqueryTip</a>' class="alert-api-button tip-btn21">背景颜色</button>
+				</fieldset>
+</body>
+<script>
+	$(".tip-btn21").jqueryTip({
+			'bgColor' : '#000',// 背景颜色
+			'color'   : '#fff', // 字体颜色
+			'attribute' : 'data-tip', //要显示文字的属性名
+			'target'  : 'mouseover',//事件
+			'maxWidth': '',//最大的宽度
+			'addClass': '', //添加类名
+			'padding' : 8 , //弹出框之间的间隙
+			'width'   : 'auto', //设置宽度
+			'animateTime' : 300, //动画时间
+			'animateType' : 'fade',//动画类型
+			// 水平和垂直只能一个为center，若两个同时为center，vertical的center将被改为top
+			'horizontal'  : 'center',  //水平方向  left center right
+			'vertical'    : 'top',  //垂直方向  top center bottom
+			'closeType'   : 'auto' ,   //关闭类型 auto 自动关闭 或者鼠标移除关闭
+			'closeTime'   : 2500,  //关闭时间
+	})
+	
+</script>
+</html>

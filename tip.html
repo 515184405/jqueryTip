@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta id="scale" content="initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="js/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" href="css/jqueryTip.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src='js/jquery-1.9.0.min.js'></script>
+	<script src='js/SyntaxHighlighter/shCore.js'></script>
+	<script src='js/SyntaxHighlighter/makeSy.js'></script>
+	<script src='js/jqueryTip.js'></script>
+	<script src='js/tip-api.js'></script>
+</head>
+<body>
+	<p class="t_c f24 alert-api-txt m30 w1004">jqueryTip.js说明文档</p>
+	<div class="w1004 alert-box">
+		<div class="alert-api-list">
+			<p class="f18 alert-api-title">演示demo</p>
+			<ul class="alert_list">
+				<li><a class="alert-api-hover" href="#tip-btn1">示例1</a></li>
+				<li><a href="#tip-btn2">示例2</a></li>
+				<li><a href="#tip-btn3">示例3</a></li>
+				<li><a href="#tip-btn4">示例4</a></li>
+			</ul>
+			<p class="f18 alert-api-title">基础参数</p>
+			<ul class="alert_list">
+				<li><a href="#style">bgColor</a></li>
+				<li><a href="#title">color</a></li>
+				<li><a href="#content">attribute</a></li>
+				<li><a href="#contentTextAlign">target</a></li>
+				<li><a href="#width">maxWidth</a></li>	
+				<li><a href="#height">addClass</a></li>	
+				<li><a href="#minWidth">padding</a></li>	
+				<li><a href="#className">width</a></li>	
+				<li><a href="#position">animateTime</a></li>	
+				<li><a href="#animateType">animateType</a></li>	
+				<li><a href="#modal">horizontal</a></li>	
+				<li><a href="#isModalClose">vertical</a></li>	
+				<li><a href="#bodyScroll">closeType</a></li>	
+				<li><a href="#closeTime">closeTime</a></li>	
+			</ul>
+		</div>
+		<div class="alert-api-box">	
+			<div class="alert-api-intro">
+			<p class="alert-api-intro-msg">
+				<span class="f18">jqueryTip.js信息提示文档说明</span> 
+				<span class="f14 red" style="margin-left:20px">此组件为PC端信息提示组件</span>
+			</p>
+			<div class="m20 blockquote">
+				jqueryTip.js是基于jQuery开发的一款轻量级信息提示组件
+			</div>
+	
+			<p class="f18 m20">评分</p>
+			<div class="m20 blockquote">
+			   	<p>如果觉得好用，就在github上 <a style='line-height: 25px;height:25px' class="alert-api-button" target="_blank" href='https://github.com/515184405/alert'>star</a><a target="_blank" style='line-height: 25px;height:25px;margin-left:5px;' class="alert-api-button" href="https://github.com/515184405/alert"> Fock</a> 或本站 <a class="alert-api-button" style='line-height: 25px;height:25px;' href="http://fy.035k.com/project/alert">留言</a> 哦</p>
+			</div>
+
+			<p class="f18 m20">浏览器兼容</p>
+			<div class="m20 blockquote" id="alert-blockquote">
+			     <p class="f16">浏览器兼容，下面是我们的主要兼容目标</p>
+		         <p class="f14">1、IE8 或者 IE8以上 (Windows), <span class="red">IE8以下浏览器不兼容</p>
+		         <p class="f14">2、Safari (Mac)</p>
+		         <p class="f14">3、Chrome (Windows, Mac, Linux)</p>
+		         <p class="f14"> 4、Firefox (Windows, Mac,  Linux)</p>
+		         <p class="f14">5、谷歌内核(webkit)浏览器，如360浏览器，搜狗浏览器，QQ浏览器等</p>
+			</div>
+			<p class="f18 m20 blue">核心方法（配置）: jqueryTip(opts)</p>
+			<div class="m20 blockquote">
+				opts是一个对象，它包含了以下key: '默认值'
+			</div>
+			<p class="m20 blue brush-title">javascript 代码:</p>
+			<pre class="brush:javascript;toolbar:false">
+						
+				'bgColor' : '#000',// 背景颜色
+				'color'   : '#fff', // 字体颜色
+				'attribute' : 'data-tip', //要显示文字的属性名
+				'target'  : 'mouseover',//事件
+				'maxWidth': '',//最大的宽度
+				'addClass': '', //添加类名
+				'padding' : 8 , //弹出框之间的间隙
+				'width'   : 'auto', //设置宽度
+				'animateTime' : 300, //动画时间
+				'animateType' : 'fade',//动画类型
+				// 水平和垂直只能一个为center，若两个同时为center，vertical的center将被改为top
+				'horizontal'  : 'center',  //水平方向  left center right
+				'vertical'    : 'top',  //垂直方向  top center bottom
+				'closeType'   : 'mouseout' ,   //关闭类型 auto 自动关闭 或者鼠标移除关闭
+				'closeTime'   : 2500,  //关闭时间</pre>
+				<fieldset id="tip-btn1" class="m20 fieldset">
+					<legend>示例 <strong class="red f16">horizontal、vertical</strong> 参数演示</legend>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn1">方向(上左)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn2">方向(上中)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn3">方向(上右)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn4">方向(中左)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn5">方向(中右)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn6">方向(下左)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn7">方向(下中)</button>
+					<button data-tip='我是信息提示tip......' class="alert-api-button tip-btn8">方向(下右)</button>
+				</fieldset>
+				<p class="m20 blue brush-title"><button id="tip-api-demo1" data-tip='操作方向参数' class="alert-api-button">操作方向</button> 参数配置</p>
+				<pre class="brush:javascript;toolbar:false">
+				$("#tip-api-demo1").jqueryTip({
+					'horizontal'  : 'center', //left、right
+					'vertical'    : 'top',	//center、bottom
+				})</pre>
+
+				<fieldset id="tip-btn2" class="m20 fieldset">
+					<legend>示例 <strong class="red f16">bgColor、color、attribute、target</strong> 参数演示</legend>
+					<button data-tip='我是改背景色的参数...' class="alert-api-button tip-btn21">背景颜色</button>
+					<button data-tip='我是改文本的参数...' class="alert-api-button tip-btn22">文本颜色</button>
+					<button data-title='我是设置data-title的参数...' class="alert-api-button tip-btn23">设置属性</button>
+					<button data-tip='mouseover触发事件...' class="alert-api-button tip-btn24">触发事件(mouseover)</button>
+					<button data-tip='click触发事件...' class="alert-api-button tip-btn25">触发事件(click)</button>
+				</fieldset>
+				<p class="m20 blue brush-title"><button id="tip-api-demo2" data-title='操作 bgColor、color、attribute、target 参数配置' class="alert-api-button">操作 bgColor、color、attribute、target </button> 参数配置 <span class="red f12">注意：此处触发事件为click</span></p>
+				<pre class="brush:javascript;toolbar:false">
+				$("#tip-api-demo2").jqueryTip({
+					'bgColor'  : '#f00', 
+					'color'    : '#0f0',
+					'attribute': 'data-title',
+					'target'   : 'click',
+				})</pre>
+				<fieldset id="tip-btn3" class="m20 fieldset">
+					<legend>示例 <strong class="red f16">maxWidth、addClass、padding、width、animateTime</strong> 参数演示</legend>
+					<button data-tip='设置最大宽度参数...' class="alert-api-button tip-btn31">设置最大宽度</button>
+					<button data-tip='添加类名...' class="alert-api-button tip-btn32">添加类名</button>
+					<button data-tip='设置内边距...' class="alert-api-button tip-btn33">设置内边距</button>
+					<button data-tip='设置宽度参数...' class="alert-api-button tip-btn34">设置宽度</button>
+					<button data-tip='设置动画时间...' class="alert-api-button tip-btn35">设置动画时间</button>
+				</fieldset>
+				<p class="m20 blue brush-title"><button id="tip-api-demo3" data-tip='操作 maxWidth、addClass、padding、width、animateTime 参数配置' class="alert-api-button">操作 maxWidth、addClass、padding、width、animateTime </button> 参数配置 </p>
+				<pre class="brush:javascript;toolbar:false">
+				$("#tip-api-demo3").jqueryTip({
+					'maxWidth' : '300',
+					'addClass'   : 'tipClass',
+					'padding'   : '15',
+					'animateTime':'700',
+				})</pre>
+
+				<fieldset id="tip-btn4" class="m20 fieldset">
+					<legend>示例 <strong class="red f16">animateType、closeType、closeTime</strong> 参数演示</legend>
+					<button data-tip='动画1(fade)...' class="alert-api-button tip-btn41">动画1(fade)</button>
+					<button data-tip='动画2(bounce)...' class="alert-api-button tip-btn42">动画2(bounce)</button>
+					<button data-tip='默认3s后自动关闭...' class="alert-api-button tip-btn43">关闭类型(auto)</button>
+					<button data-tip='鼠标移出关闭...' class="alert-api-button tip-btn44">关闭类型(mouseout)</button>
+					<button data-tip='当关闭类型为自动关闭,可设置关闭时间' class="alert-api-button tip-btn45">关闭时间</button>
+				</fieldset>
+				
+				<p class="m20 blue brush-title"><button id="tip-api-demo4" data-tip='操作 animateType、closeType、closeTime 参数配置' class="alert-api-button">操作 animateType、closeType、closeTime </button> 参数配置 </p>
+				<pre class="brush:javascript;toolbar:false">
+				$("#tip-api-demo4").jqueryTip({
+					'animateType' : 'bounce',
+					'closeType'   : 'auto',
+					'closeTime'   : '5000'
+				})</pre>
+	
+
+				
+				<p class="f24 m30">基本参数</p>
+
+				<p id="style" class="alert-api-api "><span class="blue f18">bgColor </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：#000</p>
+					<p><span class="blue">释义</span>：设置背景颜色</p>
+				</div>
+
+				<p id="title" class="alert-api-api "><span class="blue f18">color </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：#fff</p>
+					<p><span class="blue">释义</span>：设置文本颜色</p>
+				</div>
+
+				<p id="content" class="alert-api-api "><span class="blue f18">attribute </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：data-tip</p>
+					<p><span class="blue">释义</span>：设置属性名</p>
+				</div>
+
+				<p id="contentTextAlign" class="alert-api-api "><span class="blue f18">target </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：mouseover</p>
+					<p><span class="blue">选项</span>：<span class="str_bg">mouseover</span><span class="str_bg">click</span></p>
+					<p><span class="blue">释义</span>：设置事件</p>
+				</div>
+				
+				
+				<p id="width" class="alert-api-api "><span class="blue f18">maxWidth </span>- Number/String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：''</p>
+					<p><span class="blue">释义</span>：设置最大宽度</p>
+				</div>
+
+				<p id="height" class="alert-api-api "><span class="blue f18">addClass </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：''</p>
+					<p><span class="blue">释义</span>：添加class</p>
+				</div>
+				
+				<p id="minWidth" class="alert-api-api "><span class="blue f18">padding </span>- Number/String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：8</p>
+					<p><span class="blue">释义</span>：设置内边距</p>
+				</div>
+
+				<p id="className" class="alert-api-api "><span class="blue f18">width </span>- Number/String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：auto</p>
+					<p><span class="blue">释义</span>：设置宽度</p>
+				</div>
+				
+				<p id="position" class="alert-api-api "><span class="blue f18">animateTime </span>- Number/String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：300</p>
+					<p><span class="blue">释义</span>：设置动画时间</p>
+				</div>
+
+				<p id="animateType" class="alert-api-api "><span class="blue f18">animateType </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：fade</p>
+					<p><span class="blue">选项</span>：<span class="str_bg">fade</span><span class="str_bg">bounce</span></p>
+					<p><span class="blue">释义</span>：使用动画</p>
+					<p><span class="blue">Bug</span>：在IE8下动画效果失效</p>
+				</div>
+			
+				<p id="modal" class="alert-api-api "><span class="blue f18">horizontal </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：center</p>
+					<p><span class="blue">选项</span>：<span class="str_bg">left</span><span class="str_bg">center</span><span class="str_bg">right</span></p>
+					<p><span class="blue">释义</span>：设置水平方向</p>
+				</div>
+	
+				<p id="isModalClose" class="alert-api-api "><span class="blue f18">vertical </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：top</p>
+					<p><span class="blue">选项</span>：<span class="str_bg">top</span><span class="str_bg">center</span><span class="str_bg">bottom</span></p>
+					<p><span class="blue">释义</span>：设置垂直方向</p>
+				</div>
+
+				<p id="bodyScroll" class="alert-api-api "><span class="blue f18">closeType </span>- String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：mouseout</p>
+					<p><span class="str_bg">mouseout</span><span class="str_bg">auto</span></p>
+					<p><span class="blue">释义</span>：关闭类型 auto 自动关闭 或者鼠标移除关闭</p>
+				</div>
+				
+				<p id="closeTime" class="alert-api-api "><span class="blue f18">closeTime </span>- Number/String</p>
+				<div class="m20 blockquote">
+					<p><span class="blue">默认</span>：2500</p>
+					<p><span class="blue">释义</span>：如果closeType == 'auto'时,此参数生效</p>
+				</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
